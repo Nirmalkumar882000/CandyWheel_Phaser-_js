@@ -54,7 +54,9 @@ const Images = {
 
     instrctionmodel:"assets/models/instraction.webp"as string,
     playermodel:"assets/models/playerlist.webp"as string,
-    settingsmodel:"assets/models/settings.webp"as string
+    settingsmodel:"assets/models/settings.webp"as string,
+    myRecords:"assets/models/result.webp"as string,
+    backButton:"assets/models/back.webp",
 
 
   };

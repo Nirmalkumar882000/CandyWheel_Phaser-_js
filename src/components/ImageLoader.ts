@@ -58,6 +58,12 @@ const Images = {
     myRecords:"assets/models/result.webp"as string,
     backButton:"assets/models/back.webp",
 
+    // Avatar
+
+    frame:"assets/user/frame.webp",
+    avatar:"assets/user/avatar.webp",
+
+
 
   };
 

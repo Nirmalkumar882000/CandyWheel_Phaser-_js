@@ -4,7 +4,7 @@ const TextContent = {
     profileText: 'Your profile text here',
     settingsText: 'Your settings text here',
     trendNameText: 'Your trend name text here',
-    remainingTitleText: 'Your remaining title text here ',
+    remainingTitleText: 'Hellow world ',
     remainingValues: '5000000',
      content: [
         '1.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ',

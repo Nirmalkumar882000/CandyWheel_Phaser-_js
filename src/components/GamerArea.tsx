@@ -2,7 +2,7 @@ import Images from "./ImageLoader";
 import TextContent from "./TextContent";
 
 export default class GameArea extends Phaser.Scene {
-  y: number;
+  y: number | undefined;
   constructor() {
     super("GameArea");
   }
@@ -407,7 +407,6 @@ export default class GameArea extends Phaser.Scene {
     });
     this.input.setDefaultCursor("not-allowed");
 
-
     const graphics = this.make.graphics();
 
     graphics.fillStyle(0xffffff);
@@ -461,26 +460,57 @@ export default class GameArea extends Phaser.Scene {
 
   showModal1() {
     const scaleFactor = (this.game.config.width as number) / 1920; // Assuming the original width of the screen is 1920px
+
     // Create modal background image
     const modalBackground = this.add
       .image(400 * scaleFactor, 50 * scaleFactor, "playermodel")
       .setOrigin(0);
     modalBackground.setScale(0.28 * scaleFactor);
     modalBackground.setDepth(1);
+
     // Create back button image
     const backButton = this.add
       .image(1200 * scaleFactor, 810 * scaleFactor, "backButton")
       .setScale(0.2 * scaleFactor);
     backButton.setDepth(2);
+
+    // Enable input and handle click event on the back button
     backButton.setInteractive().on("pointerdown", () => {
       modalBackground.destroy();
       backButton.destroy();
       this.input.setDefaultCursor("auto");
     });
-    // Disable input on objects behind the modal
     this.input.setDefaultCursor("not-allowed");
-    console.log("Showing settings modal");
+
+    // profile
+    const sprites = [];
+
+    for (let i = 0; i < 50; i++) {
+      sprites.push(
+        this.add.sprite(0, 0, "frame").setDepth(2).setScale(0.3)
+      );
+    }
+    // sprites.push(
+    //   this.add.sprite(680, 425, "avatar").setDepth(1).setScale(0.17)
+    // );
+    Phaser.Actions.GridAlign(sprites, {
+      width: 12,
+      cellWidth: 120,
+      cellHeight: 60,
+      x: 16,
+      y: 10
+  });
+
+    // const frame = this.add.image(680,420,"frame").setDepth(2).setScale(0.30)
+    // const avatar =this.add.image(680,425,"avatar").setDepth(1).setScale(0.17)
+    // const text =this.add.text(635,500,TextContent.remainingTitleText, {
+    //   fontSize: 50 * scaleFactor,
+    //   color: "#000",
+    //   fontStyle: "bold",
+    // }).setDepth(1).setScale(0.3)
   }
+
+
 
   showModal2() {
     const scaleFactor = (this.game.config.width as number) / 1920; // Assuming the original width of the screen is 1920px
